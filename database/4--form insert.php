@@ -22,7 +22,7 @@
 </form>
 
 <?php
-$opd= new PDO('mysql:dbname=php_project;host=localhost', 'root', '');
+$opd = new PDO('mysql:dbname=php_project;host=localhost', 'root', '');
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // print_r($_POST);
     $name = $_POST['name'];
@@ -30,6 +30,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $location = $_POST['location'];
 
     $sql = "insert into users(name,age,location) value(?,?,?)";
-    $reslut= $opd->prepare($sql);
-    $reslut->execute([$name, $age, $location]);
+    $reslut = $opd->prepare($sql)->execute([$name, $age, $location]);
 }
